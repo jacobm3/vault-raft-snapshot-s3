@@ -1,0 +1,1 @@
+0 * * * * /home/ubuntu/bin/vault-snapshot-s3.sh
