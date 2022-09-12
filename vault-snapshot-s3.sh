@@ -15,6 +15,7 @@ export VAULT_TOKEN=$( echo $loginjson | jq -r .auth.client_token )
 #
 # Take Vault snapshot
 #
+mkdir -p $DIR
 ts=$(date +%Y%m%d.%H%M%S.%s)
 file=${DIR}/vault.${HOSTNAME}.${ts}.snap
 
