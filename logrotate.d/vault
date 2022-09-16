@@ -1,0 +1,17 @@
+/var/log/vault/*.log {
+  daily
+  rotate 365
+  compress
+  compresscmd /usr/bin/zstd
+  compressext .zst
+  uncompresscmd /usr/bin/unzstd
+  maxsize 1G
+  dateext
+  dateformat -%Y%m%d_%H:%M:%S
+  missingok
+  olddir /var/log/vault/archive
+  create 0644 vault vault
+  postrotate
+    /usr/bin/pkill -HUP vault
+  endscript
+}
