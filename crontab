@@ -4,3 +4,5 @@
 
 10 * * * * /home/ubuntu/vault-raft-snapshot-s3/vault-log-s3.sh >/home/ubuntu/vault-raft-snapshot-s3/s3.audit.log 2>&1
 
+# don't leave tokens laying around
+* * * * *  find /home/ubuntu/.vault-token -type f -mmin +60 -exec rm -f {} \;  2>/dev/null
